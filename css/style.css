@@ -1,0 +1,9 @@
+body {
+  margin: 0;
+}
+
+div#wrapper {
+  width: 100vw;
+  grid-template-rows: auto, 1fr;
+}
+
