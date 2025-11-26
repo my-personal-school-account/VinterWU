@@ -1,9 +1,28 @@
+:root {
+  --brand-pink: 
+}
+
 body {
   margin: 0;
 }
 
 div#wrapper {
-  width: 100vw;
-  grid-template-rows: auto, 1fr;
-}
+  display: grid;
+  height: 100vh;
 
+  grid-template-rows: auto 1fr;
+
+  > nav {
+    display: flex;
+    
+    justify-content: center;
+
+    > img#tlBrandIcon {
+      justify-self: flex-start;
+    }
+
+    > img#trProfilePic {
+      justify-self: flex-end;
+    }
+  }
+}
