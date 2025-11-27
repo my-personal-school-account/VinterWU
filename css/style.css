@@ -1,28 +1,53 @@
 :root {
-  --brand-pink: 
+  --brand-pink: #fac0f4;
+  --primary-dark: #262426;
+  --secondary-dark: #353235;
+
+  --border-size: 4px;
 }
 
 body {
   margin: 0;
+
+  background-color: var(--brand-pink);
 }
 
 div#wrapper {
   display: grid;
   height: 100vh;
+  gap: var(--border-size);
 
   grid-template-rows: auto 1fr;
 
-  > nav {
+  >nav {
     display: flex;
-    
-    justify-content: center;
+    justify-content: space-between;
 
-    > img#tlBrandIcon {
-      justify-self: flex-start;
+    background-color: var(--primary-dark);
+
+    >div {
+      padding: 10px;
     }
 
-    > img#trProfilePic {
-      justify-self: flex-end;
+    >div#navItems {
+      --x-scale: 2;
+
+      display: flex;
+      transform: scaleX(var(--x-scale));
+      align-items: center;
+
+      >* {
+        transform: scaleX(calc(1 / var(--x-scale)));
+      }
+
+      >section#selectedNavItem {
+        border: var(--border-size) solid var(--brand-pink) ;
+        border-radius: calc(1.5 * var(--border-size));
+      }
     }
+  }
+
+  >main {
+    background-color: var(--secondary-dark);
   }
 }
