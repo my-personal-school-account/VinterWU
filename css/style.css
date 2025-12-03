@@ -2,13 +2,19 @@
   --brand-pink: #fac0f4;
   --primary-dark: #262426;
   --secondary-dark: #353235;
+  --primary-light: #fff2ff;
+  --secondary-light: #d6cbd6;
 
   --border-size: 4px;
 }
 
-body {
+* {
   margin: 0;
+  padding: 0;
+  color: var(--primary-light);
+}
 
+body {
   background-color: var(--brand-pink);
 }
 
@@ -40,9 +46,23 @@ div#wrapper {
         transform: scaleX(calc(1 / var(--x-scale)));
       }
 
-      >section#selectedNavItem {
-        border: var(--border-size) solid var(--brand-pink) ;
-        border-radius: calc(1.5 * var(--border-size));
+      >a {
+        display: block;
+
+        >section {
+          background-color: var(--secondary-dark);
+          border-radius: calc(1.5 * var(--border-size));
+
+          border: calc(0.5 * var(--border-size)) solid var(--brand-pink);
+
+          p {
+            margin: calc(2.5 * var(--border-size));
+          }
+        }
+
+        >section#selectedNavItem {
+          border-width: calc(1.5 * var(--border-size));
+        }
       }
     }
   }
