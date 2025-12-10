@@ -12,30 +12,29 @@
   margin: 0;
   padding: 0;
   color: var(--primary-light);
-}
-
-body {
-  background-color: var(--brand-pink);
+  text-decoration: none;
 }
 
 div#wrapper {
   display: grid;
   height: 100vh;
-  gap: var(--border-size);
 
   grid-template-rows: auto 1fr;
 
-  >nav {
+  >header {
     display: flex;
     justify-content: space-between;
 
     background-color: var(--primary-dark);
 
-    >div {
+    border-bottom: var(--border-size) solid var(--brand-pink);
+
+    >div,
+    nav {
       padding: 10px;
     }
 
-    >div#navItems {
+    >nav {
       --x-scale: 2;
 
       display: flex;
@@ -49,6 +48,7 @@ div#wrapper {
       >a {
         display: block;
 
+
         >section {
           background-color: var(--secondary-dark);
           border-radius: calc(1.5 * var(--border-size));
@@ -56,6 +56,9 @@ div#wrapper {
           border: calc(0.5 * var(--border-size)) solid var(--brand-pink);
 
           p {
+            font-family: "Roboto Mono", monospace;
+            font-weight: 700;
+            font-size: 1.2em;
             margin: calc(2.5 * var(--border-size));
           }
         }
@@ -69,5 +72,14 @@ div#wrapper {
 
   >main {
     background-color: var(--secondary-dark);
+
+    >section#courseCardContainer {
+      display: flex;
+      justify-content: center;
+
+      >article {
+        border-radius: calc(4 * var(--border-size));
+      }
+    }
   }
 }
