@@ -15,6 +15,10 @@
   text-decoration: none;
 }
 
+body {
+  background-color: var(--secondary-dark);
+}
+
 .font-header-roboto-mono {
 
   h1,
@@ -36,6 +40,7 @@ div#wrapper {
   grid-template-rows: auto 1fr;
 
   >header {
+
     display: flex;
     justify-content: space-between;
 
@@ -43,9 +48,26 @@ div#wrapper {
 
     border-bottom: var(--border-size) solid var(--brand-pink);
 
+
     >div,
     nav {
       padding: 10px;
+    }
+
+    div.icon {
+      /* height: 2em; */
+      img {
+        display: block;
+        height: 3.4em;
+        /* height: 100%; */
+        /* position: absolute; */
+        /* top: 0; */
+        /* right: 0; */
+      }
+    }
+
+    div#trProfilePic {
+      height: 100%;
     }
 
     >nav {
@@ -84,8 +106,8 @@ div#wrapper {
 
     >section#courseCardContainer {
       display: flex;
-      justify-content: center;
       flex-wrap: wrap;
+      justify-content: center;
 
       >article {
         margin: 1em;
@@ -98,7 +120,7 @@ div#wrapper {
         flex-direction: column;
         align-items: center;
 
-        > img {
+        >img {
           width: 90%;
           aspect-ratio: 1;
         }
