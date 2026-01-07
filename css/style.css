@@ -29,7 +29,6 @@ body {
   h6 {
     font-family: "Roboto Mono", monospace;
     font-weight: 700;
-    /* font-size: 1.2em; */
   }
 }
 
@@ -55,14 +54,10 @@ div#wrapper {
     }
 
     div.icon {
-      /* height: 2em; */
+
       img {
         display: block;
-        height: 3.4em;
-        /* height: 100%; */
-        /* position: absolute; */
-        /* top: 0; */
-        /* right: 0; */
+        height: 3.5em;
       }
     }
 
