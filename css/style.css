@@ -17,6 +17,7 @@
 
 body {
   background-color: var(--secondary-dark);
+  border-color: var(--brand-pink);
 }
 
 .font-header-roboto-mono {
@@ -45,7 +46,7 @@ div#wrapper {
 
     background-color: var(--primary-dark);
 
-    border-bottom: var(--border-size) solid var(--brand-pink);
+    border-bottom: var(--border-size) solid;
 
 
     >div,
@@ -81,7 +82,7 @@ div#wrapper {
           background-color: var(--secondary-dark);
           border-radius: calc(1.5 * var(--border-size));
 
-          border: calc(0.5 * var(--border-size)) solid var(--brand-pink);
+          border: calc(0.5 * var(--border-size)) solid;
 
           h1 {
             font-size: 1.2em;
@@ -106,7 +107,7 @@ div#wrapper {
 
       >article {
         margin: 1em;
-        border: var(--border-size) solid var(--brand-pink);
+        border: var(--border-size) solid;
         border-radius: calc(4 * var(--border-size));
         width: 50ch;
         aspect-ratio: 3/4;
@@ -124,6 +125,94 @@ div#wrapper {
           width: 90%;
           aspect-ratio: 1;
         }
+      }
+    }
+
+    >section#graphContainer {
+      margin-top: 1em;
+      height: calc(100% - 1em);
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: repeat(4, 1fr);
+
+      #graph3-1 {
+        grid-area: 1 / 3;
+      }
+
+      #graph3-2 {
+        grid-area: 2 / 3;
+      }
+
+      #graph3-3 {
+        grid-area: 3 / 3;
+      }
+
+      #graph2-3 {
+        grid-area: 3 / 2;
+      }
+
+      #graph1-3 {
+        grid-area: 3 / 1;
+      }
+
+      #graph2-4 {
+        grid-area: 4 / 2;
+      }
+
+      --line-width: var(--border-size);
+      --half-line: calc(var(--line-width) / 2);
+      --center-margin: calc(50% - var(--half-line));
+
+      >article.node {
+        display: grid;
+        grid-template-columns: 1fr 8fr 1fr;
+        grid-template-rows: 1fr 8fr 1fr;
+
+        grid-template-areas:
+          ". t ."
+          "l center r"
+          ". b .";
+
+        justify-items: center;
+        align-items: center;
+
+        >div.main {
+          grid-area: center;
+          border: var(--border-size);
+
+          display: grid;
+          grid-template-columns: 1fr 8fr 1fr;
+          grid-template-rows: 1fr 8fr 1fr;
+
+          >h1 {
+            grid-area: 2 / 2;
+          }
+
+          >div.completionIndicator {
+            grid-area: 1 / 3;
+
+            background-color: var(--primary-dark);
+            border-radius: 100%;
+            height: 2em;
+            aspect-ratio: 1/1;
+          }
+
+        }
+
+        >div.tDown {
+
+          grid-area: b;
+          margin-left: var(--center-margin);
+          width: var(--line-width);
+          background-color: var(--brand-pink);
+        }
+      }
+
+      >div.vertical {
+
+        margin-left: var(--center-margin);
+        width: var(--line-width);
+        background-color: var(--brand-pink);
       }
     }
   }
