@@ -13,11 +13,11 @@
   padding: 0;
   color: var(--primary-light);
   text-decoration: none;
+  border-color: var(--brand-pink);
 }
 
 body {
   background-color: var(--secondary-dark);
-  border-color: var(--brand-pink);
 }
 
 .font-header-roboto-mono {
@@ -46,7 +46,8 @@ div#wrapper {
 
     background-color: var(--primary-dark);
 
-    border-bottom: var(--border-size) solid;
+    border-bottom-width: var(--border-size);
+    border-bottom-style: solid;
 
 
     >div,
@@ -82,7 +83,8 @@ div#wrapper {
           background-color: var(--secondary-dark);
           border-radius: calc(1.5 * var(--border-size));
 
-          border: calc(0.5 * var(--border-size)) solid;
+          border-width: calc(0.5 * var(--border-size));
+          border-style: solid;
 
           h1 {
             font-size: 1.2em;
@@ -107,7 +109,8 @@ div#wrapper {
 
       >article {
         margin: 1em;
-        border: var(--border-size) solid;
+        border-width: var(--border-size);
+        border-style: solid;
         border-radius: calc(4 * var(--border-size));
         width: 50ch;
         aspect-ratio: 3/4;
@@ -163,6 +166,8 @@ div#wrapper {
       --half-line: calc(var(--line-width) / 2);
       --center-margin: calc(50% - var(--half-line));
 
+      --down-arrow: "ᐯ";
+
       >article.node {
         display: grid;
         grid-template-columns: 1fr 8fr 1fr;
@@ -178,20 +183,25 @@ div#wrapper {
 
         >div.main {
           grid-area: center;
-          border: var(--border-size);
+          border-width: var(--border-size);
+          border-style: solid;
+          border-radius: 1em;
+          position: relative;
+          height: 100%;
+          width: 100%;
 
-          display: grid;
-          grid-template-columns: 1fr 8fr 1fr;
-          grid-template-rows: 1fr 8fr 1fr;
-
-          >h1 {
-            grid-area: 2 / 2;
-          }
+          display: flex;
+          justify-content: center;
+          align-items: center;
 
           >div.completionIndicator {
-            grid-area: 1 / 3;
 
-            background-color: var(--primary-dark);
+            position: absolute;
+            top: 0.5em;
+            right: 0.5em;
+
+            border-width: var(--border-size);
+            border-style: solid;
             border-radius: 100%;
             height: 2em;
             aspect-ratio: 1/1;
@@ -199,12 +209,116 @@ div#wrapper {
 
         }
 
-        >div.tDown {
-
-          grid-area: b;
-          margin-left: var(--center-margin);
-          width: var(--line-width);
+        >div.below,
+        >div.above,
+        >div.left,
+        >div.right {
           background-color: var(--brand-pink);
+          position: relative;
+        }
+
+        >div.below,
+        >div.above {
+          height: 100%;
+          width: var(--line-width);
+        }
+
+        >div.left,
+        >div.right {
+          width: 100%;
+          height: var(--line-width);
+        }
+
+        >div.left {
+          grid-area: l;
+        }
+
+        >div.right {
+          grid-area: r;
+
+          >div.lArrow::before {
+            content: var(--down-arrow);
+            rotate: 90deg;
+            line-height: 70%;
+            top: -368%;
+            font-size: 300%;
+            color: var(--brand-pink);
+            position: absolute;
+            right: 9%;
+          }
+        }
+
+        >div.above {
+          grid-area: t;
+
+          >div.dArrow::before {
+            content: var(--down-arrow);
+            left: -395%;
+            line-height: 70%;
+            font-size: 300%;
+            color: var(--brand-pink);
+            position: absolute;
+            bottom: 0;
+          }
+        }
+
+        >div.below {
+          grid-area: b;
+        }
+      }
+
+      >article.completed {
+        >div.main {
+          >div.completionIndicator {
+            background-color: var(--brand-pink);
+          }
+        }
+      }
+
+      >div.node {
+        --ball-size: 2em;
+
+        display: grid;
+        grid-template-columns: 1fr var(--ball-size) 1fr;
+        grid-template-rows: 1fr var(--ball-size) 1fr;
+
+        grid-template-areas:
+          ". t ."
+          "l center r"
+          ". b .";
+
+        justify-items: center;
+        align-items: center;
+
+        >div.main {
+          grid-area: center;
+
+          border-width: var(--border-size);
+          border-style: solid;
+          border-radius: 100%;
+          height: var(--ball-size);
+          aspect-ratio: 1/1;
+        }
+
+        >div.right {
+          grid-area: r;
+          background-color: var(--brand-pink);
+          width: 100%;
+          height: var(--line-width);
+        }
+
+        >div.down {
+          grid-area: b;
+          background-color: var(--brand-pink);
+          height: 100%;
+          width: var(--line-width);
+        }
+
+        >div.left {
+          grid-area: l;
+          background-color: var(--brand-pink);
+          width: 100%;
+          height: var(--line-width);
         }
       }
 
