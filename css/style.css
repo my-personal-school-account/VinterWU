@@ -99,8 +99,43 @@ div#wrapper {
     }
   }
 
+  >main#overviewMain {
+    display: flex;
+
+    padding: 1em;
+
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: auto 1fr;
+
+    grid-template-areas:
+      "prAs pcSe"
+      "prAs stSe";
+
+    >aside#progressAside {
+      grid-area: prAs;
+    }
+
+    >section#prevCourseSection {
+
+      grid-area: pcSe;
+
+      >div {
+        display: flex;
+
+        >div {
+          background-color: var(--primary-dark);
+        }
+      }
+    }
+
+    >section#statisticsSection {
+      grid-area: stSe;
+    }
+  }
+
   >main {
     background-color: var(--secondary-dark);
+
 
     >section#courseCardContainer {
       display: flex;
