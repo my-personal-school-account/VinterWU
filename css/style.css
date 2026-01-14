@@ -14,6 +14,7 @@
   color: var(--primary-light);
   text-decoration: none;
   border-color: var(--brand-pink);
+  border-width: var(--border-size);
 }
 
 body {
@@ -100,36 +101,133 @@ div#wrapper {
   }
 
   >main#overviewMain {
-    display: flex;
+    display: grid;
 
-    padding: 1em;
+    * {
+      border-radius: 0.6em;
+    }
+
+    h1 {
+      margin-left: 0.2em;
+      font-size: 3em;
+    }
+
+    h2 {
+      font-size: 2em;
+    }
+
+    padding: 2em;
+
+    gap: 2em;
 
     grid-template-columns: 1fr 3fr;
     grid-template-rows: auto 1fr;
 
-    grid-template-areas:
-      "prAs pcSe"
-      "prAs stSe";
+    grid-template-areas: "prAs pcSe"
+    "prAs stSe";
 
     >aside#progressAside {
       grid-area: prAs;
+
+      display: grid;
+
+      grid-template-rows: auto 1fr;
+
+      >section {
+        border-style: solid;
+        padding: 1em;
+
+        >div {
+          margin-top: 1em;
+
+          display: grid;
+
+          grid-template-columns: auto 1fr;
+
+          gap: 1em;
+
+          >div.progressBar {
+            border-style: solid;
+            position: relative;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            line-height: 90%;
+            font-size: 1.35em;
+
+            >p {
+              z-index: 1;
+            }
+
+            >div {
+              height: 100%;
+              background-color: var(--primary-dark);
+              z-index: 0;
+              position: absolute;
+              left: 0;
+            }
+
+            >div.per10 {
+              width: 10%;
+            }
+
+            >div.per35 {
+              width: 35%;
+            }
+
+            >div.per40 {
+              width: 40%;
+            }
+
+            >div.per70 {
+              width: 70%;
+            }
+          }
+        }
+      }
     }
 
     >section#prevCourseSection {
 
       grid-area: pcSe;
 
+
       >div {
         display: flex;
 
+        border-style: solid;
+
+        padding: 2em;
+
+        align-items: center;
+
         >div {
+          margin-left: 3.5em;
           background-color: var(--primary-dark);
+          border-style: solid;
+
+          >h2 {
+            font-size: 2.5em;
+            padding: 0.5em;
+          }
         }
       }
     }
 
     >section#statisticsSection {
       grid-area: stSe;
+
+      display: grid;
+      grid-template-rows: auto 1fr;
+
+      >article {
+        border-style: solid;
+
+        background-color: var(--primary-dark);
+        height: 1fr;
+      }
     }
   }
 
@@ -144,7 +242,6 @@ div#wrapper {
 
       >article {
         margin: 1em;
-        border-width: var(--border-size);
         border-style: solid;
         border-radius: calc(4 * var(--border-size));
         width: 50ch;
@@ -218,7 +315,6 @@ div#wrapper {
 
         >div.main {
           grid-area: center;
-          border-width: var(--border-size);
           border-style: solid;
           border-radius: 1em;
           position: relative;
@@ -235,7 +331,6 @@ div#wrapper {
             top: 0.5em;
             right: 0.5em;
 
-            border-width: var(--border-size);
             border-style: solid;
             border-radius: 100%;
             height: 2em;
@@ -328,7 +423,6 @@ div#wrapper {
         >div.main {
           grid-area: center;
 
-          border-width: var(--border-size);
           border-style: solid;
           border-radius: 100%;
           height: var(--ball-size);
