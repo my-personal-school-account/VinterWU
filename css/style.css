@@ -225,8 +225,33 @@ div#wrapper {
       >article {
         border-style: solid;
 
-        background-color: var(--primary-dark);
-        height: 1fr;
+        display: grid;
+
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+
+        column-gap: 1em;
+
+        padding: 2em;
+
+        >div {
+          margin: 1em;
+          padding: 1em;
+          display: grid;
+
+          align-items: center;
+          text-align: center;
+
+          >div {
+            background-color: var(--primary-dark);
+            border-style: solid;
+
+            >h2 {
+              font-size: 2.5em;
+              padding: 0.5em;
+            }
+          }
+        }
       }
     }
   }
