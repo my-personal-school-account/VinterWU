@@ -473,6 +473,8 @@ div#wrapper {
       align-items: center;
 
       >p {
+        font-family: sans-serif;
+
         padding: 0.5em;
         font-size: 1.1em;
       }
